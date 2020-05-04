@@ -7,7 +7,7 @@ class SouscategoriesController < ApplicationController
 
   def edit
     @souscategorie = Souscategory.find(params[:id])
-    authorize @souscategorie
+
   end
 
   def index
@@ -19,7 +19,7 @@ class SouscategoriesController < ApplicationController
     authorize @souscategorie
 
     if @souscategorie.save
-      redirect_to root_path
+      redirect_to admin_root_path
     else
       render :new
     end
@@ -27,16 +27,15 @@ class SouscategoriesController < ApplicationController
 
   def destroy
     @souscategorie = Souscategory.find(params[:id])
-    authorize @souscategorie
     @souscategorie.destroy
-    redirect_to root_path
+    redirect_to admin_root_path
   end
 
   def update
     @souscategorie = Souscategory.find(params[:id])
-    authorize @souscategorie
-    @souscategorie.update(souscategorie_params)
-    redirect_to souscategorie_path(@souscategorie)
+
+    @souscategorie.update(souscategory_params)
+    redirect_to souscategory_path(@souscategorie)
   end
 
   def new

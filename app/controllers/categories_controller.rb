@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
     authorize @categorie
 
     if @categorie.save
-      redirect_to root_path
+      redirect_to admin_root_path
     else
       render :new
     end
@@ -28,16 +28,14 @@ class CategoriesController < ApplicationController
 
   def destroy
     @categorie = Category.find(params[:id])
-    authorize @categorie
     @categorie.destroy
-    redirect_to root_path
+    redirect_to admin_root_path
   end
 
   def update
     @categorie = Category.find(params[:id])
-    authorize @categorie
-    @categorie.update(categorie_params)
-    redirect_to categorie_path(@categorie)
+    @categorie.update(category_params)
+    redirect_to category_path(@categorie)
   end
 
   def new

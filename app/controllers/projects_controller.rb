@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @projet = Project.find(params[:id])
-    authorize @projet
+
   end
 
   def index
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     authorize @projet
 
     if @projet.save
-      redirect_to root_path
+      redirect_to admin_root_path
     else
       render :new
     end
@@ -27,16 +27,14 @@ class ProjectsController < ApplicationController
 
   def destroy
     @projet = Project.find(params[:id])
-    authorize @projet
     @projet.destroy
-    redirect_to root_path
+    redirect_to admin_root_path
   end
 
   def update
     @projet = Project.find(params[:id])
-    authorize @projet
-    @projet.update(projet_params)
-    redirect_to projet_path(@projet)
+    @projet.update(project_params)
+    redirect_to project_path(@projet)
   end
 
   def new

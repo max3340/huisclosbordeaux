@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <div class="form-inscription">
+        <div class="inscription2">
+          <div class="new-formation-card p-4">
+            <%= simple_form_for([@souscategorie]) do |f| %>
+            <%= f.association :category %>
+            <%= f.input :name, as: :string, label: "Nom de la catégorie", input_html: { autocomplete: 'off' }, required: true %>
+            <%= f.submit "Ajouter catégorie", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

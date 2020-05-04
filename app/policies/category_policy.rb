@@ -8,9 +8,7 @@ class CategoryPolicy < ApplicationPolicy
     user.role == 'admin'
   end
 
-  def destroy
-    user.role == 'admin'
-  end
+
 
   def update
     user.role == 'admin'

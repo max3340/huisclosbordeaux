@@ -8,17 +8,6 @@
             <%= f.association :souscategory %>
             <%= f.input :name, as: :string, required: true %>
             <%= f.input :description, as: :text %>
-            <p>Intégrer une vidéo sur le site:
-              <br>
-              1. Accédez à la vidéo YouTube que vous souhaitez intégrer.
-              <br>
-              2. Sous la vidéo, cliquez sur PARTAGER.
-              <br>
-              3. Cliquez sur Intégrer.
-              <br>
-              4. Copiez le contenu après src= (exemple: https://www.youtube.com/embed/20QI4krOYYk, ne pas copier les "")
-              <br>
-              5. Collez ensuite dans le champs "Youtube" juste en dessous :)</p>
             <%= f.input :youtube, as: :string %>
             <%= f.input :site, as: :string %>
             <%= f.submit "Ajouter projet", class: "btn btn-primary" %>

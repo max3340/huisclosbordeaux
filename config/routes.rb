@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'users#admin', as: :admin_root
 
+
 end

@@ -1,0 +1,5 @@
+<%= @souscategorie.name %>
+<%= link_to "delete", souscategory_path(@souscategorie),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<%= link_to "modifier", edit_souscategory_path(@souscategorie) %>
