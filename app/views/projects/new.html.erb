@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <div class="form-inscription">
+        <div class="inscription2">
+          <div class="new-formation-card p-4">
+            <%= simple_form_for([@projet]) do |f| %>
+            <%= f.association :souscategory %>
+            <%= f.input :name, as: :string, required: true %>
+            <%= f.input :description, as: :text %>
+            <%= f.input :youtube, as: :string %>
+            <%= f.input :site, as: :string %>
+            <%= f.submit "Ajouter projet", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
