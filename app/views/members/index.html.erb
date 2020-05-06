@@ -1,0 +1,10 @@
+<h1>Liste de tous les membres</h1>
+<h2>Clic sur celui que tu veux modifier ou supprimer!</h2>
+<ul>
+<% @members.each do |member| %>
+<li><%= link_to member_path(member) do %>
+  <%= member.first_name %> <%= member.last_name %>
+  </li>
+  <% end %>
+<% end %>
+</ul>

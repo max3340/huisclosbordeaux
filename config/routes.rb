@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :projects
   resources :souscategories
   resources :categories
+  resources :members
 
   get '/admin', to: 'users#admin', as: :admin_root
-
+  get '/demande-videos', to: 'pages#demandevideos', as: :demandevideos
+  get '/qui-sommes-nous', to: 'pages#quisommesnous', as: :quisommesnous
+  get '/contact', to: 'pages#contact', as: :contact
 
 end
