@@ -8,3 +8,7 @@ davantage. La richesse de Huis clos est premièrement basé sur la forte cohési
 et l'habitude que nous avons de travailler ensemble sur divers projets, mais aussi sur les intérêts
 particuliers de chacun dans plusieurs domaines d'exercices différents, par exemple les sports
 extremes, le surf, la mer, la nature, la musique, etc."</p>
+
+<% @members.each do |member| %>
+      <%= render 'shared/member_card', member: member %>
+      <% end %>

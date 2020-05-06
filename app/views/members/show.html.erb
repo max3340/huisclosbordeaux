@@ -1,0 +1,5 @@
+<%= @member.first_name %> <%= @member.last_name %>
+<%= link_to "supprimer", member_path(@member),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<%= link_to "modifier", edit_member_path(@member) %>

@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def quisommesnous
+    @members = Member.all
   end
 
   def contact
