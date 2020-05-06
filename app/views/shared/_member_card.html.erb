@@ -1,5 +1,5 @@
 <div class="card" style="width: 18rem;">
-  <%= cl_image_tag @member.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= image_tag url_for(member.cover_photo) %>
   <div class="card-body">
     <h5 class="card-title"><%= member.first_name %> <%= member.last_name %></h5>
     <p class="card-text"><%= member.role %></p>
