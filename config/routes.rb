@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   resources :souscategories
   resources :categories
   resources :members
-  resources :pages, only: [:demandevideos, :new, :create]
+
   get '/admin', to: 'users#admin', as: :admin_root
   get '/demande-videos', to: 'pages#demandevideos', as: :demandevideos
   post '/demande-videos', to: 'pages#create'
-  get '/messageok', to: 'pages#messageok', as: :messageok
   get '/qui-sommes-nous', to: 'pages#quisommesnous', as: :quisommesnous
   get '/contact', to: 'pages#contact', as: :contact
 
