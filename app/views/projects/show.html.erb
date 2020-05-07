@@ -1,5 +1,8 @@
-<%= @projet.name %>
-<%= link_to "supprimer", project_path(@projet),
+<h1><%= @projet.name %>
+  <% if user_signed_in? && current_user.role == "admin" %>
+(<%= link_to "supprimer", project_path(@projet),
             method: :delete,
-            data: { confirm: "Are you sure?" } %>
-<%= link_to "modifier", edit_project_path(@projet) %>
+            data: { confirm: "Are you sure?" } %> /
+<%= link_to "modifier", edit_project_path(@projet) %>)
+<% end %>
+</h1>

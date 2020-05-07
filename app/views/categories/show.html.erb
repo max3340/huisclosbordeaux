@@ -1,14 +1,13 @@
-<h1><%= @categorie.name %></h1>
+<h1><%= @categorie.name %>
+<% if user_signed_in? && current_user.role == "admin" %>
+(<%= link_to "supprimer", category_path(@categorie),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %> /
+<%= link_to "modifier", edit_category_path(@categorie) %>)
+<% end %>
+</h1>
 <ul>
 <% @categorie.souscategories.each do |souscat| %>
-<ul>
-<li><%= souscat.name %></li>
-</ul>
-<% souscat.projects.each do |projet| %>
-<li><%= projet.name %></li>
-<li><%= projet.description %></li>
-<li><iframe width="560" height="315" src="<%= projet.youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
-<li><%= projet.site %>
-<% end %></li>
+<li> <%= link_to souscat.name, souscategory_path(souscat)%> </li>
 <% end %>
 </ul>
