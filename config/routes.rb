@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :souscategories
   resources :categories
   resources :members
-
+  resources :pages, only: [:demandevideos, :new, :create]
   get '/admin', to: 'users#admin', as: :admin_root
   get '/demande-videos', to: 'pages#demandevideos', as: :demandevideos
   post '/demande-videos', to: 'pages#create'
