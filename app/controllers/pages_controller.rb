@@ -18,12 +18,14 @@ class PagesController < ApplicationController
 
    def create
     @contact = Page.new(params[:page])
+    @contact.request = request
       if @contact.deliver
         # re-initialize Home object for cleared form
         @contact = Page.new
-        redirect_to messageok_path
+
+        redirect_to root_path
       else
-        redirect_to messageok_path
+        render :contact_form
       end
     end
 
