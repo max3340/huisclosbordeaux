@@ -19,15 +19,18 @@ class PagesController < ApplicationController
    def create
     @contact = Page.new(params[:page])
     @contact.request = request
+    respond_to do |format|
       if @contact.deliver
-        # re-initialize Home object for cleared form
+        # re-initialize page object for cleared form
         @contact = Page.new
+        format.html { render 'demandevideos'}
 
-        redirect_to root_path
       else
-        render :contact_form
+        format.html { render 'demandevideos' }
+
       end
     end
+  end
 
   def messageok
   end
