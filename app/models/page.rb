@@ -9,7 +9,7 @@ class Page < MailForm::Base
   def headers
     {
       :subject => "Demande de vidéo / contact",
-      :to => "maxime-garcia@windowslive.com",
+      :to => "maxime.garcia.dev@gmail.com",
       :from => %("#{name}" <#{email}>)
     }
   end
