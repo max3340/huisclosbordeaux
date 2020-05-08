@@ -1,7 +1,11 @@
 <h1>Liste de tous tes projets</h1>
-<h2>Clic sur celui que tu veux modifier ou supprimer!</h2>
 <ul>
 <% @projets.each do |projet| %>
-<li>Projet: <%= link_to projet.name, project_path(projet) %>  Sous-catégorie: <%= projet.souscategory.name %> Catégorie:  <%= projet.souscategory.category.name %></li>
+<li>Projet: <%= projet.name %>  Sous-catégorie: <%= projet.souscategory.name %> Catégorie:  <%= projet.souscategory.category.name %>
+<% if user_signed_in? && current_user.role == "admin" %>
+ <%= link_to "supprimer", project_path(projet),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %> <%= link_to "modifier", edit_project_path(projet) %></li>
+<% end %>
 <% end %>
 </ul>

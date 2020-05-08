@@ -45,6 +45,6 @@ class SouscategoriesController < ApplicationController
   private
 
   def souscategory_params
-  params.require(:souscategory).permit(:name, :category_id)
+  params.require(:souscategory).permit(:name, :category_id, :cover_photo)
 end
 end

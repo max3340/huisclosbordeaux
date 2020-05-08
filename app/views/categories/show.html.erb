@@ -1,13 +1,8 @@
-<h1><%= @categorie.name %>
-<% if user_signed_in? && current_user.role == "admin" %>
-(<%= link_to "supprimer", category_path(@categorie),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %> /
-<%= link_to "modifier", edit_category_path(@categorie) %>)
-<% end %>
-</h1>
-<ul>
+<h1><%= @categorie.name %></h1>
 <% @categorie.souscategories.each do |souscat| %>
-<li> <%= link_to souscat.name, souscategory_path(souscat)%> </li>
+<%= link_to souscategory_path(souscat), style:"text-decoration: none;" do %>
+<%= render 'shared/souscat_card', souscat: souscat %>
 <% end %>
-</ul>
+<% end %>
+
+

@@ -1,8 +1,15 @@
-<h1>Liste de toutes tes sous-catégories</h1>
-<h2>Clic sur celui que tu veux modifier ou supprimer!</h2>
+<h1>Liste des sous-catégories</h1>
 <h2>Attention si tu supprimes une sous-catégorie, cela supprime tous les projets étant affiliés à cette sous catégorie</h2>
 <ul>
 <% @souscategories.each do |souscategorie| %>
-<li>Sous-catégorie: <%= link_to souscategorie.name, souscategory_path(souscategorie) %>  catégorie: <%= souscategorie.category.name %></li>
+<li>
+  Sous-catégorie: <%= souscategorie.name %>  catégorie: <%= souscategorie.category.name %>
+  <% if user_signed_in? && current_user.role == "admin" %>
+  <%= link_to "supprimer", souscategory_path(souscategorie),
+            method: :delete,
+            data: { confirm: "T'es sûr man?" } %>
+  <%= link_to "modifier", edit_souscategory_path(souscategorie) %>
+  <% end %>
+</li>
 <% end %>
 </ul>

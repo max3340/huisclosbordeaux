@@ -1,12 +1,4 @@
-<h1><%= @souscategorie.name %>
-<% if user_signed_in? && current_user.role == "admin" %>
-(<%= link_to "supprimer", souscategory_path(@souscategorie),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %> /
-<%= link_to "modifier", edit_souscategory_path(@souscategorie) %>)
-<% end %>
-</h1>
-
+<h1><%= @souscategorie.name %></h1>
 <ul>
 <% @souscategorie.projects.each do |projet| %>
 <li><%= projet.name %></li>

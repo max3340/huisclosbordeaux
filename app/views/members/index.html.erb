@@ -1,10 +1,13 @@
 <h1>Liste de tous les membres</h1>
-<h2>Clic sur celui que tu veux modifier ou supprimer!</h2>
 <ul>
 <% @members.each do |member| %>
-<li><%= link_to member_path(member) do %>
-  <%= member.first_name %> <%= member.last_name %>
+<li><%= member.first_name %> <%= member.last_name %>
+  <% if user_signed_in? && current_user.role == "admin" %>
+  <%= link_to "supprimer", member_path(member),
+            method: :delete,
+            data: { confirm: "T'es sûr man?" } %>
+  <%= link_to "modifier", edit_member_path(member) %>
+  <% end %>
   </li>
   <% end %>
-<% end %>
 </ul>

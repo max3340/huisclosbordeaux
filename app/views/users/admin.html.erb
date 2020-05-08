@@ -1,10 +1,14 @@
-
+<h1>AJOUTER</h1>
 <%= link_to "Ajouter une catégorie", new_category_path, class: "btn btn-outline-primary" %>
 <%= link_to "Ajouter une sous-catégorie", new_souscategory_path, class: "btn btn-outline-primary" %>
 <%= link_to "Ajouter un Projet", new_project_path, class: "btn btn-outline-primary"  %>
-<%= link_to "supprimer/modifier un projet", projects_path, class: "btn btn-outline-primary"  %>
+<%= link_to "ajouter un membre", new_member_path, class: "btn btn-outline-primary" %>
+
+<h1>MODIFIER/SUPPRIMER</h1>
 <%= link_to "supprimer/modifier une catégorie", categories_path, class: "btn btn-outline-primary" %>
 <%= link_to "supprimer/modifier une sous-catégorie", souscategories_path, class: "btn btn-outline-primary" %>
-<%= link_to "ajouter un membre", new_member_path, class: "btn btn-outline-primary" %>
+<%= link_to "supprimer/modifier un projet", projects_path, class: "btn btn-outline-primary"  %>
 <%= link_to "supprimer/modifier un membre", members_path, class: "btn btn-outline-primary"  %>
+
+<h1>QUITTER ADMIN</h1>
 <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger"%>

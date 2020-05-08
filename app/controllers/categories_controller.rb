@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
   def edit
     @categorie = Category.find(params[:id])
-    authorize @categorie
+
   end
 
   def index

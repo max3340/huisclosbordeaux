@@ -1,3 +1,12 @@
+<h1>Liste des catégories</h1>
+<ul>
 <% @categories.each do |category| %>
-<%= link_to category.name, category_path(category) %>
+<li>Catégorie: <%= category.name %>
+<% if user_signed_in? && current_user.role == "admin" %>
+ <%= link_to "supprimer", category_path(category),
+            method: :delete,
+            data: { confirm: "T'es sûr man?" } %>
+<%= link_to "modifier", edit_category_path(category) %></li>
 <% end %>
+<% end %>
+</ul>
