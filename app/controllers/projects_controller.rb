@@ -44,6 +44,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-  params.require(:project).permit(:name, :souscategory_id, :extrait, :details, :youtube, :site)
+  params.require(:project).permit(:name, :souscategory_id, :description, :youtube, :site)
 end
 end

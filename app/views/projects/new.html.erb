@@ -7,7 +7,7 @@
             <%= simple_form_for([@projet]) do |f| %>
             <%= f.association :souscategory %>
             <%= f.input :name, as: :string, required: true %>
-            <%= f.input :description, as: :text %>
+            <%= f.input :description %>
             <p>Intégrer une vidéo sur le site:
               <br>
               1. Accédez à la vidéo YouTube que vous souhaitez intégrer.
