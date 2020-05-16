@@ -1,5 +1,6 @@
 <h1><%= @souscategorie.name %></h1>
+<div class="projets">
 <% @souscategorie.projects.each do |projet| %>
 <%= render 'shared/project_card', projet: projet %>
 <% end %>
-
+</div>
