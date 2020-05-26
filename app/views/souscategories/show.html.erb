@@ -1,3 +1,5 @@
+<%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
 <h1 id="souscatname" style="color: white;"><%= @souscategorie.name %></h1>
 <div class="projets">
 <% @souscategorie.projects.each do |projet| %>
