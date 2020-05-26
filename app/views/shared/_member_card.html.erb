@@ -1,11 +1,16 @@
-<div class="card" style="width: 18rem;">
+<div class="card" id="memberimg"  style="width: 18rem;">
   <%= image_tag member.cover_photo, height: 200, width: 286, crop: :fill %>
   <div class="card-body">
     <h5 class="card-title"><%= member.first_name %> <%= member.last_name %></h5>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" style="width: 250px;">
+    Informations &darr;
+  </button>
+    <div class="collapse" id="collapseExample">
     <p class="card-text"><%= member.role %></p>
     <p class="card-text"><%= member.description %></p>
     <p class="card-text"><%= member.email %></p>
     <p class="card-text"><%= member.liens %></p>
     <a href="<%= member.instagram %>" target = "_blank" ><i class="fab fa-instagram"></i></a>
   </div>
+</div>
 </div>

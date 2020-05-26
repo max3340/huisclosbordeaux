@@ -7,6 +7,6 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
-
+$('.collapse').collapse('hide')
 import "bootstrap";
 

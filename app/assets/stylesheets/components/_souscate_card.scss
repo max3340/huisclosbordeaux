@@ -10,6 +10,22 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 7px 8px 5px 0px rgba(0,0,0,0.75);
   text-decoration: none;
+  margin-bottom: 10px;
+  margin: 15px;
+}
+
+.card-category:hover {
+  transform: scale(1.1);
+}
+
+#catname {
+  text-align: center;
+}
+
+#souscatname {
+  text-align: center;
+  margin-bottom: 75px;
+  margin-top: 25px;
 }

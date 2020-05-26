@@ -1,3 +1,4 @@
+
 <p>" Huis Clos est une association crée en mai 2019 composé d'une bande d'amis de 7 vidéastes et 1
 monteur tous issu de la même école audiovisuelle à Bordeaux. Portant tous un intérêt fort pour
 l'art, la musique et ainsi des événements associés, lié au milieu de la nuit. Nous avons commencé
@@ -9,6 +10,8 @@ et l'habitude que nous avons de travailler ensemble sur divers projets, mais aus
 particuliers de chacun dans plusieurs domaines d'exercices différents, par exemple les sports
 extremes, le surf, la mer, la nature, la musique, etc."</p>
 
+<div class="membres">
 <% @members.each do |member| %>
       <%= render 'shared/member_card', member: member %>
       <% end %>
+</div>

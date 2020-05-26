@@ -1,4 +1,4 @@
-<h1><%= @categorie.name %></h1>
+
 <% @categorie.souscategories.each do |souscat| %>
 <%= link_to souscategory_path(souscat), style:"text-decoration: none;" do %>
 <%= render 'shared/souscat_card', souscat: souscat %>
