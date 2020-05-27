@@ -1,5 +1,5 @@
 <div class="card" id="memberimg"  style="width: 18rem;">
-  <%= image_tag url_for(member.cover_photo), height: 200, width: 286, crop: :fill %>
+  <%= image_tag member.cover_photo, height: 200, width: 286, crop: :fill %>
   <div class="card-body">
     <h5 class="card-title"><%= member.first_name %> <%= member.last_name %></h5>
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" style="width: 250px;">
