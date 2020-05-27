@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-<h1 id="souscatname" style="color: white;"><%= @souscategorie.name %></h1>
+<%= render 'shared/flashes' %>
+<h1 id="souscatname" style="color: white;"><%= @souscategorie.category.name %> DE <%= @souscategorie.name %></h1>
 <div class="projets">
 <% @souscategorie.projects.each do |projet| %>
 <%= render 'shared/project_card', projet: projet %>
