@@ -207,7 +207,7 @@
             <label for="checkbox1"></label>
           </span>
         </td>
-        <td>souscategory.category.name</td>
+        <td><%= souscategory.category.name %></td>
         <td><%= souscategory.name %></td>
         <td>
           <%= link_to  souscategory_path(souscategory),
@@ -272,8 +272,8 @@
           </span>
         </td>
         <td><%= project.name %></td>
-        <td>project.category.name</td>
-        <td>project.souscategory.name</td>
+        <td><%= project.category.name %></td>
+        <td><%= project.souscategory.name %></td>
         <td>
           <%= link_to  project_path(project),
           method: :delete,
