@@ -39,11 +39,16 @@ class ProjectsController < ApplicationController
 
   def new
     @projet = Project.new
+
+    respond_to do |format|
+    format.html
+    format.js
+  end
   end
 
   private
 
   def project_params
-  params.require(:project).permit(:name, :souscategory_id, :description, :youtube, :site)
+  params.require(:project).permit(:name, :souscategory_id, :category :description, :youtube, :site)
 end
 end

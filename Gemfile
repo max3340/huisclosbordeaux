@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem "pundit"
+gem 'popper_js', '~> 1.14.5'
 gem 'aws-sdk-s3', require: false
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'mail_form'

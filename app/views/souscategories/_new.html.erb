@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel">Ajouter sous-catégorie</h4>
+</div>
+<div class="modal-body">
+  <%= simple_form_for([@souscategorie]) do |f| %>
+            <%= f.association :category %>
+            <%= f.input :name, as: :string, label: "Nom de la catégorie", input_html: { autocomplete: 'off' }, required: true %>
+            <%= f.file_field :cover_photo %>
+            <br>
+            <br>
+            <%= f.submit "Ajouter sous-catégorie", class: "btn btn-primary" %>
+            <% end %>
+</div>
