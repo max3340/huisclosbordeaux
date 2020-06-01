@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel">Ajouter un membre</h4>
+</div>
+<div class="modal-body">
+  <%= simple_form_for([@member]) do |f| %>
+  <%= f.input :first_name, as: :string, required: true %>
+  <%= f.input :last_name, as: :string, required: true %>
+  <%= f.label :cover_photo %>
+  <%= f.file_field :cover_photo %>
+  <%= f.input :role, as: :string %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :email, as: :string %>
+  <%= f.input :instagram, as: :string %>
+  <%= f.input :liens, as: :string %>
+  <%= f.submit "Ajouter un membre", class: "btn btn-primary" %>
+  <% end %>
+</div>

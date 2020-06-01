@@ -1,5 +1,107 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  // Activate tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // Select/Deselect checkboxes
+  var checkbox = $('table tbody input[type="checkbox"]');
+  $("#selectAll").click(function(){
+    if(this.checked){
+      checkbox.each(function(){
+        this.checked = true;
+      });
+    } else{
+      checkbox.each(function(){
+        this.checked = false;
+      });
+    }
+  });
+  checkbox.click(function(){
+    if(!this.checked){
+      $("#selectAll").prop("checked", false);
+    }
+  });
+});
+</script>
+  </head>
+
 <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+<%= render 'shared/flashes' %>
+
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Manage <b>Membres</b></h2>
+        </div>
+        <div class="col-sm-6">
+          <%= link_to new_member_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-success'} do %>
+          <i class="material-icons">&#xE147;</i>Ajouter membre
+          <% end %>
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<%= link_to new_user_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'} do %>
+<i class="material-icons">&#xE15C;</i>Supprimer
+<% end %>
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+          <a href="#deleteMemberModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Supprimer</span></a>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            <span class="custom-checkbox">
+              <input type="checkbox" id="selectAll">
+              <label for="selectAll"></label>
+            </span>
+          </th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+        <tr>
+          <td>
+            <span class="custom-checkbox">
+              <input type="checkbox" id="checkbox1" name="options[]" value="1">
+              <label for="checkbox1"></label>
+            </span>
+          </td>
+          <td><%= member.last_name %>y</td>
+          <td><%= member.first_name %></td>
+          <td>
+            <a href="#editMemberModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+            <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 <h1>AJOUTER</h1>
 <%= link_to "Ajouter une catégorie", new_category_path, class: "btn btn-outline-primary" %>
 <%= link_to "Ajouter une sous-catégorie", new_souscategory_path, class: "btn btn-outline-primary" %>
@@ -14,3 +116,6 @@
 
 <h1>QUITTER ADMIN</h1>
 <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger"%>
+
+
+

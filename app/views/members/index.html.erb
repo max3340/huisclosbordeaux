@@ -1,15 +1,51 @@
 <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-<h1>Liste de tous les membres</h1>
-<ul>
-<% @members.each do |member| %>
-<li><%= member.first_name %> <%= member.last_name %>
-  <% if user_signed_in? && current_user.role == "admin" %>
-  <%= link_to "supprimer", member_path(member),
-            method: :delete,
-            data: { confirm: "T'es sûr man?" } %>
-  <%= link_to "modifier", edit_member_path(member) %>
-  <% end %>
-  </li>
-  <% end %>
-</ul>
+<%= render 'shared/flashes' %>
+
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Manage <b>Membres</b></h2>
+        </div>
+        <div class="col-sm-6">
+          <a href="#addmemberModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter un membre</span></a>
+          <a href="#deleteMemberModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Supprimer</span></a>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            <span class="custom-checkbox">
+              <input type="checkbox" id="selectAll">
+              <label for="selectAll"></label>
+            </span>
+          </th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+        <tr>
+          <td>
+            <span class="custom-checkbox">
+              <input type="checkbox" id="checkbox1" name="options[]" value="1">
+              <label for="checkbox1"></label>
+            </span>
+          </td>
+          <td><%= member.last_name %>y</td>
+          <td><%= member.first_name %></td>
+          <td>
+            <a href="#editMemberModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+            <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
