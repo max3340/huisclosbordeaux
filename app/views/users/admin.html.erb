@@ -52,14 +52,6 @@ $(document).ready(function(){
     <div class="modal-content"></div>
   </div>
 </div>
-
-<%= link_to new_user_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'} do %>
-<i class="material-icons">&#xE15C;</i>Supprimer
-<% end %>
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
-  </div>
 </div>
           <a href="#deleteMemberModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Supprimer</span></a>
         </div>
@@ -92,7 +84,14 @@ $(document).ready(function(){
           <td><%= member.first_name %></td>
           <td>
             <a href="#editMemberModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            <%= link_to member_path(member),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window',method: :delete,
+            data: { confirm: "T'es sûr man?"}, class: 'delete'} do %>
+<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+<% end %>
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
           </td>
         </tr>
         <% end %>
