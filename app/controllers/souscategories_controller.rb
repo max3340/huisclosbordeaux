@@ -40,6 +40,11 @@ class SouscategoriesController < ApplicationController
 
   def new
     @souscategorie = Souscategory.new
+
+    respond_to do |format|
+    format.html
+    format.js
+  end
   end
 
   private
