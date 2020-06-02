@@ -37,8 +37,15 @@
 <%= render 'shared/flashes' %>
 
 <div class="container">
+  <div class="deco" style="text-align: center;">
   <h1>QUITTER ADMIN</h1>
 <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger"%>
+</div>
+  <div class="params" style="margin-top: 100px;">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseM" style="width: 250px;">
+    Paramètres membres &darr;
+  </button>
+    <div class="collapse" id="collapseM">
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
@@ -61,12 +68,7 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="selectAll">
-            <label for="selectAll"></label>
-          </span>
-        </th>
+        <th>ID</th>
         <th>Nom</th>
         <th>Prénom</th>
         <th>Actions</th>
@@ -75,12 +77,7 @@
     <tbody>
       <% @members.each do |member| %>
       <tr>
-        <td>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-            <label for="checkbox1"></label>
-          </span>
-        </td>
+        <td><%= member.id %></td>
         <td><%= member.last_name %></td>
         <td><%= member.first_name %></td>
         <td>
@@ -101,8 +98,11 @@
       <% end %>
     </tbody>
   </table>
-
-
+</div>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseC" style="width: 250px;">
+    Paramètres catégories &darr;
+  </button>
+    <div class="collapse" id="collapseC">
 <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
@@ -111,7 +111,7 @@
         </div>
         <div class="col-sm-6">
           <%= link_to new_category_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-success'} do %>
-          <i class="material-icons">&#xE147;</i>Ajouter catégrorie
+          <i class="material-icons">&#xE147;</i>Ajouter catégorie
           <% end %>
           <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -125,12 +125,7 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="selectAll">
-            <label for="selectAll"></label>
-          </span>
-        </th>
+        <th>ID</th>
         <th>Catégorie</th>
         <th>Actions</th>
       </tr>
@@ -138,12 +133,7 @@
     <tbody>
       <% @categories.each do |category| %>
       <tr>
-        <td>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-            <label for="checkbox1"></label>
-          </span>
-        </td>
+        <td><%= category.id %></td>
         <td><%= category.name %></td>
         <td>
           <%= link_to  category_path(category),
@@ -163,8 +153,11 @@
       <% end %>
     </tbody>
   </table>
-
-
+</div>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseS" style="width: 250px;">
+    Paramètres sous-catégories &darr;
+  </button>
+    <div class="collapse" id="collapseS">
 <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
@@ -187,12 +180,7 @@
 <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="selectAll">
-            <label for="selectAll"></label>
-          </span>
-        </th>
+        <th>ID</th>
         <th>Catégories</th>
         <th>Sous-Catégorie</th>
         <th>Actions</th>
@@ -201,12 +189,7 @@
     <tbody>
       <% @souscategories.each do |souscategory| %>
       <tr>
-        <td>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-            <label for="checkbox1"></label>
-          </span>
-        </td>
+        <td><%= souscategory.id %></td>
         <td><%= souscategory.category.name %></td>
         <td><%= souscategory.name %></td>
         <td>
@@ -227,7 +210,11 @@
       <% end %>
     </tbody>
   </table>
-
+</div>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseP" style="width: 250px;">
+    Paramètres projets &darr;
+  </button>
+    <div class="collapse" id="collapseP">
 <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
@@ -250,12 +237,7 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="selectAll">
-            <label for="selectAll"></label>
-          </span>
-        </th>
+        <th>ID</th>
         <th>Projet</th>
         <th>Catégorie</th>
         <th>Sous-catégorie</th>
@@ -265,12 +247,7 @@
     <tbody>
       <% @projects.each do |project| %>
       <tr>
-        <td>
-          <span class="custom-checkbox">
-            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-            <label for="checkbox1"></label>
-          </span>
-        </td>
+        <td><%= project.id %></td>
         <td><%= project.name %></td>
         <td><%= project.souscategory.category.name %></td>
         <td><%= project.souscategory.name %></td>
@@ -293,5 +270,6 @@
     </tbody>
   </table>
 </div>
-
+</div>
+</div>
 

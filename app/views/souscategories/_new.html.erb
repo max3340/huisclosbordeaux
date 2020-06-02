@@ -5,7 +5,8 @@
 <div class="modal-body">
   <%= simple_form_for([@souscategorie]) do |f| %>
             <%= f.association :category %>
-            <%= f.input :name, as: :string, label: "Nom de la catégorie", input_html: { autocomplete: 'off' }, required: true %>
+            <%= f.input :name, as: :string, label: "Nom de la sous-catégorie", input_html: { autocomplete: 'off' }, required: true %>
+            <%= f.label "Photo de couverture" %>
             <%= f.file_field :cover_photo %>
             <br>
             <br>
