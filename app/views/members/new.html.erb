@@ -8,7 +8,7 @@
             <%= f.input :first_name, as: :string, required: true %>
             <%= f.input :last_name, as: :string, required: true %>
             <%= f.label :cover_photo %>
-            <%= f.file_field :cover_photo %>
+            <%= f.file_field :cover_photo, required: true %>
             <%= f.input :role, as: :string %>
             <%= f.input :description, as: :text %>
             <%= f.input :email, as: :string %>
